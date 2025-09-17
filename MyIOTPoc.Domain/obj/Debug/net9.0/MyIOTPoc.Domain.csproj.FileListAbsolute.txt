@@ -1,0 +1,11 @@
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/bin/Debug/net9.0/MyIOTPoc.Domain.deps.json
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/bin/Debug/net9.0/MyIOTPoc.Domain.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/bin/Debug/net9.0/MyIOTPoc.Domain.pdb
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/MyIOTPoc.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/MyIOTPoc.Domain.AssemblyInfoInputs.cache
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/MyIOTPoc.Domain.AssemblyInfo.cs
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/MyIOTPoc.Domain.csproj.CoreCompileInputs.cache
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/MyIOTPoc.Domain.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/refint/MyIOTPoc.Domain.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/MyIOTPoc.Domain.pdb
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/obj/Debug/net9.0/ref/MyIOTPoc.Domain.dll

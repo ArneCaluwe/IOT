@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "Gxb6Fy6Mab0=",
+  "success": true,
+  "projectFilePath": "/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.DAL/MyIOTPoc.DAL.csproj",
+  "expectedPackageFiles": [
+    "/Users/arnecaluwe/.nuget/packages/microsoft.entityframeworkcore/9.0.9/microsoft.entityframeworkcore.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.9/microsoft.entityframeworkcore.abstractions.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.9/microsoft.entityframeworkcore.analyzers.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.caching.abstractions/9.0.9/microsoft.extensions.caching.abstractions.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.caching.memory/9.0.9/microsoft.extensions.caching.memory.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.9/microsoft.extensions.dependencyinjection.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.9/microsoft.extensions.dependencyinjection.abstractions.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.logging/9.0.9/microsoft.extensions.logging.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.9/microsoft.extensions.logging.abstractions.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.options/9.0.9/microsoft.extensions.options.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/microsoft.extensions.primitives/9.0.9/microsoft.extensions.primitives.9.0.9.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/scalar.aspnetcore/2.8.4/scalar.aspnetcore.2.8.4.nupkg.sha512"
+  ],
+  "logs": []
+}
