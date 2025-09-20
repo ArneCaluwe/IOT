@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using MyIOTPoc.API.Setup;
-using MyIOTPoc.API.SignalR;
 using MyIOTPoc.DAL.Context;
+using MyIOTPoc.Domain.Models.Devices;
+using MyIOTPoc.Domain.Models.Sensors;
 using Scalar.AspNetCore;
 
 
@@ -18,9 +19,6 @@ builder.Services.AddDbContext<IotDbContext>(options =>
 const string serviceName = "iot-poc-api";
 builder.Logging.AddOpenTelemetryLogging(serviceName);
 builder.Services.AddOpenTelemetryTracingAndMetrics(serviceName);
-
-builder.Services.AddSignalR();
-builder.Services.AddScoped<IotSignalRHub>();
 
 var app = builder.Build();
 
@@ -39,8 +37,6 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
-
-app.MapHub<IotSignalRHub>("/iotHub");
 app.UseHttpsRedirection();
 
 
@@ -49,6 +45,7 @@ app.MapGet("/devices", async (IotDbContext db) =>
         var devices = await db.Devices.ToListAsync();
         return Results.Ok(devices);
     })
+    .Produces<List<Device>>(StatusCodes.Status200OK)
     .WithSummary("Get all devices")
     .WithDescription("Retrieves a list of all devices in the system.");
 
@@ -58,8 +55,8 @@ app.MapGet("/sensors", async (IotDbContext db) =>
         return Results.Ok(sensors);
 
     })
+    .Produces<List<Sensor>>(StatusCodes.Status200OK)
     .WithSummary("Get all sensors")
     .WithDescription("Retrieves a list of all sensors in the system.");
-
 
 app.Run();

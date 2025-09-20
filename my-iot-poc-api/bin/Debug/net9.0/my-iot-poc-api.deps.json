@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore": "9.0.9",
           "Microsoft.EntityFrameworkCore.InMemory": "9.0.9",
           "MyIOTPoc.DAL": "1.0.0",
+          "MyIOTPoc.Domain": "1.0.0",
           "OpenTelemetry.Exporter.Console": "1.12.0",
           "OpenTelemetry.Extensions.Hosting": "1.12.0",
           "OpenTelemetry.Instrumentation.AspNetCore": "1.12.0",

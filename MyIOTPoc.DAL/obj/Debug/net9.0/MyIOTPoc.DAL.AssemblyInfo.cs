@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyIOTPoc.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27cf339e01fec3ae70b8ef16b6c895aab18a9c84")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyIOTPoc.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyIOTPoc.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

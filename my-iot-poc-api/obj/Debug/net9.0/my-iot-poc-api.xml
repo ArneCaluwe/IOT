@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>my-iot-poc-api</name>
+    </assembly>
+    <members>
+        <member name="T:MyIOTPoc.Commands.CreateSensorCommand">
+            <summary>
+            Command to create a new sensor.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Commands.CreateSensorCommand.Name">
+            <summary>
+            The name of the sensor.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Commands.CreateSensorCommand.Type">
+            <summary>
+            The type of the sensor (e.g., Temperature, Humidity).
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Commands.CreateSensorCommand.DeviceId">
+            <summary>
+            The ID of the device to which the sensor is attached.
+            </summary>
+        </member>
+        <member name="T:MyIOTPoc.API.Setup.OpenTelemetryExtensions">
+            <summary>
+            Extension methods for setting up OpenTelemetry logging, tracing, and metrics.
+            </summary>
+        </member>
+        <member name="M:MyIOTPoc.API.Setup.OpenTelemetryExtensions.AddOpenTelemetryLogging(Microsoft.Extensions.Logging.ILoggingBuilder,System.String)">
+            <summary>
+            Adds OpenTelemetry logging to the logging builder.
+            </summary>
+            <param name="logging"></param>
+            <param name="serviceName"></param>
+        </member>
+        <member name="M:MyIOTPoc.API.Setup.OpenTelemetryExtensions.AddOpenTelemetryTracingAndMetrics(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
+            <summary>
+            Adds OpenTelemetry tracing and metrics to the service collection.
+            </summary>
+            <param name="services"></param>
+            <param name="serviceName"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

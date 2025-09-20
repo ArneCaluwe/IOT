@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>enable</ImplicitUsings>    
     <RootNamespace>my_iot_poc_api</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyIOTPoc.DAL\MyIOTPoc.DAL.csproj" />
+    <ProjectReference Include="..\MyIOTPoc.Domain\MyIOTPoc.Domain.csproj" />
   </ItemGroup>
 
 </Project>

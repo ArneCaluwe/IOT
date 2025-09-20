@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyIOTPoc.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:MyIOTPoc.Domain.Models.Base.EntityBase">
+            <summary>
+            Base class for all entities, providing common properties.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Base.EntityBase.Id">
+            <summary>
+            The unique identifier for the entity.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Base.EntityBase.CreatedAt">
+            <summary>
+            The timestamp when the entity was created.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Base.EntityBase.UpdatedAt">
+            <summary>
+            The timestamp when the entity was last updated.
+            </summary>
+        </member>
+        <member name="T:MyIOTPoc.Domain.Models.Devices.Device">
+            <summary>
+            Represents a device entity in the IoT system.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Devices.Device.Name">
+            <summary>
+            The name of the device.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Devices.Device.Location">
+            <summary>
+            The location of the device.
+            </summary>
+        </member>
+        <member name="T:MyIOTPoc.Domain.Models.Sensors.Sensor">
+            <summary>
+            Represents a sensor entity in the IoT system.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Sensors.Sensor.Name">
+            <summary>
+            The name of the sensor.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Sensors.Sensor.Type">
+            <summary>
+            The type of the sensor (e.g., temperature, humidity).
+            </summary>
+        </member>
+    </members>
+</doc>

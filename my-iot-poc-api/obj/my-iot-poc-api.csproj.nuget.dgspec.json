@@ -28,6 +28,9 @@
             "projectReferences": {
               "/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.DAL/MyIOTPoc.DAL.csproj": {
                 "projectPath": "/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.DAL/MyIOTPoc.DAL.csproj"
+              },
+              "/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/MyIOTPoc.Domain.csproj": {
+                "projectPath": "/Users/arnecaluwe/Documents/projects/my-iot-poc/server/MyIOTPoc.Domain/MyIOTPoc.Domain.csproj"
               }
             }
           }
