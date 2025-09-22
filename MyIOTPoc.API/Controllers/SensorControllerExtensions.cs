@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
 using MyIOTPoc.Business.Queries.Sensors;
-using MyIOTPoc.DAL.Context;
 using MyIOTPoc.Domain.Models.Sensors;
 
 namespace MyIOTPoc.API.Controllers;
@@ -23,11 +21,7 @@ public static class SensorControllerExtensions
 
         group.MapGet("", async (ISender sender) =>
             {
-                using var activity = Activity.Current;
-
                 var sensors = await sender.Send(new GetSensorsQuery());
-
-                activity?.SetStatus(ActivityStatusCode.Ok);
                 return Results.Ok(sensors);
             })
             .Produces<List<Sensor>>(StatusCodes.Status200OK)

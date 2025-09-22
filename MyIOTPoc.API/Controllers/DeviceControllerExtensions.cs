@@ -22,11 +22,7 @@ public static class DeviceControllerExtensions
 
         group.MapGet("", async (ISender sender) =>
             {
-                using var activity = Activity.Current;
-
                 var devices = await sender.Send(new GetDevicesQuery());
-
-                activity?.SetStatus(ActivityStatusCode.Ok);
                 return Results.Ok(devices);
             })
             .Produces<List<Device>>(StatusCodes.Status200OK)
@@ -36,12 +32,7 @@ public static class DeviceControllerExtensions
 
         group.MapPost("register", async (RegisterDeviceCommand cmd, ISender sender) =>
         {
-            using var activity = Activity.Current;
-
             var device = await sender.Send(cmd);
-
-            activity?.SetStatus(ActivityStatusCode.Ok);
-
             return Results.Created($"/devices/{device.Id}", device);
         }).Accepts<RegisterDeviceCommand>("application/json")
           .Produces<Device>(StatusCodes.Status201Created)
