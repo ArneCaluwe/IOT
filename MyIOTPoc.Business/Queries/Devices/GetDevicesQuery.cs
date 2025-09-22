@@ -1,7 +1,6 @@
-using MediatR;
 using MyIOTPoc.Domain.Models.Devices;
 
-namespace MyIOTPoc.Business.Queries;
+namespace MyIOTPoc.Business.Queries.Devices;
 
 /// <summary>
 /// Query to get all devices.

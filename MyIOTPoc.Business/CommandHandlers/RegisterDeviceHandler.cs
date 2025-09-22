@@ -1,7 +1,5 @@
-using System.Diagnostics;
-using MediatR;
 using MyIOTPoc.DAL.Repositories;
-using MyIOTPoc.Domain.Business.Commands;
+using MyIOTPoc.Business.Commands.Devices;
 using MyIOTPoc.Domain.Models.Devices;
 
 namespace MyIOTPoc.Business.CommandHandlers;

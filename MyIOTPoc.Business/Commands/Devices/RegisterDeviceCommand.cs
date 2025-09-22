@@ -1,9 +1,8 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using MediatR;
 using MyIOTPoc.Domain.Models.Devices;
 
-namespace MyIOTPoc.Domain.Business.Commands;
+namespace MyIOTPoc.Business.Commands.Devices;
 
 /// <summary>
 /// Command to register a new device in the system.
