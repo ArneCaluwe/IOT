@@ -29,6 +29,12 @@ The focus of the application is to experiment with new technologies, tools and v
 ## Project setup
 ### Secrets and configuration
 #### Secrets
+> Secrets can be used to add confidential data to source files without adding it to source control. 
+To initialize secrets type `dotnet user-secrets init` in terminal.
+
+> To add or update secrets, type `dotnet user-secrets set "{secret key seperated by dots}" "{secret value}"`in terminal.
+
+##### application secrets:
 ```json
 {
     "Licenses":{
