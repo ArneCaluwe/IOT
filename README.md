@@ -26,11 +26,22 @@ The focus of the application is to experiment with new technologies, tools and v
 |Website        | [scalar.com](https://scalar.com) |
 | Docs          | [.NET specific docs](https://guides.scalar.com/scalar/scalar-api-references/integrations/net-aspnet-core/integration) |
 
+## Project setup
+### Secrets and configuration
+#### Secrets
+```json
+{
+    "Licenses":{
+        "Mediatr": "your Mediatr license"
+    }
+}
+```
+
 ## Project structure
 ### References
 ```
-    API         Business
-     ↓      ↙    ↓
-    Domain  ←   DAL
+      API       Business
+       ↓    ↙      ↓
+    Domain  ←     DAL
 ```
      

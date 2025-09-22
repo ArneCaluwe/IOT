@@ -11,6 +11,7 @@ public static class MediatrExtensions
     /// Adds and configures MediatR services.
     /// </summary>
     /// <param name="services"></param>
+    /// <param name="licenseKey">The license key for Mediatr</param>
     /// <returns></returns>
     public static IServiceCollection AddMediatr(this IServiceCollection services, string licenseKey)
     {

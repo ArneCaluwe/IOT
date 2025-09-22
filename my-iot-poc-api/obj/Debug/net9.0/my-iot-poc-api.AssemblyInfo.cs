@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("my-iot-poc-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59f609ef22069cccd06407b2573e7ccf3e6bc3f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb9dfa7824388ba44436250e27a9d298df751e8e")]
 [assembly: System.Reflection.AssemblyProductAttribute("my-iot-poc-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("my-iot-poc-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

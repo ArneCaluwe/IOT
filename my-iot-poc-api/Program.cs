@@ -1,6 +1,9 @@
+using System.Diagnostics;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyIOTPoc.API.Setup;
+using MyIOTPoc.Business.Queries;
 using MyIOTPoc.DAL.Context;
 using MyIOTPoc.DAL.Repositories;
 using MyIOTPoc.Domain.Business.Commands;
@@ -21,12 +24,11 @@ builder.Services.AddDbContext<IotDbContext>(options =>
 
 const string serviceName = "MyIOT.API";
 builder.Logging.AddOpenTelemetryLogging(serviceName);
-builder.Services.AddOpenTelemetryTracingAndMetrics(serviceName);
+builder.Services.AddOpenTelemetryTracingAndMetrics(builder.Environment.ApplicationName);
 builder.Services.AddMediatr(builder.Configuration["Licenses:Mediatr"] ?? throw new InvalidOperationException("MediatR license key is not configured"));
 builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 
 var app = builder.Build();
-
 
 using (var scope = app.Services.CreateScope())
 {
@@ -45,9 +47,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/devices", async (IotDbContext db) =>
+app.MapGet("/devices", async (ISender sender) =>
     {
-        var devices = await db.Devices.ToListAsync();
+        using var activity = Activity.Current;
+
+        var devices = await sender.Send(new GetDevicesQuery());
+
+        activity?.SetStatus(ActivityStatusCode.Ok);
         return Results.Ok(devices);
     })
     .Produces<List<Device>>(StatusCodes.Status200OK)
@@ -64,9 +70,14 @@ app.MapGet("/sensors", async (IotDbContext db) =>
     .WithSummary("Get all sensors")
     .WithDescription("Retrieves a list of all sensors in the system.");
 
-app.MapPost("/devices/register", async (IotDbContext db, RegisterDeviceCommand cmd, ISender sender) =>
+app.MapPost("/devices/register", async (RegisterDeviceCommand cmd, ISender sender) =>
 {
+    using var activity = Activity.Current;
+
     var device = await sender.Send(cmd);
+
+    activity?.SetStatus(ActivityStatusCode.Ok);
+
     return Results.Created($"/devices/{device.Id}", device);
 }).Accepts<RegisterDeviceCommand>("application/json")
   .Produces<Device>(StatusCodes.Status201Created)

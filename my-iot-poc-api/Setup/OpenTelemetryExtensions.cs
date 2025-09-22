@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
@@ -36,13 +37,21 @@ public static class OpenTelemetryExtensions
     public static IServiceCollection AddOpenTelemetryTracingAndMetrics(this IServiceCollection services, string serviceName)
     {
         services.AddOpenTelemetry()
-            .ConfigureResource(resource => resource.AddService(serviceName))
+            .ConfigureResource(resource =>
+                resource
+                    .AddService(serviceName)
+                )
             .WithTracing(tracing => tracing
                 .AddAspNetCoreInstrumentation()
+                .AddOtlpExporter()
                 .AddConsoleExporter())
             .WithMetrics(metrics => metrics
                 .AddAspNetCoreInstrumentation()
+                .AddOtlpExporter()
                 .AddConsoleExporter());
+
+        services.AddSingleton(new ActivitySource(serviceName));
+
         return services;
     }
 }

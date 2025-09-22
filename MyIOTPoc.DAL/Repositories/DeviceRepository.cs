@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using MyIOTPoc.DAL.Context;
 using MyIOTPoc.Domain.Models.Devices;
 
@@ -8,7 +10,7 @@ namespace MyIOTPoc.DAL.Repositories;
 /// </summary>
 public interface IDeviceRepository
 {
-    IEnumerable<Device> GetDevices();
+    Task<IEnumerable<Device>> GetDevicesAsync();
     Task<Device> AddDeviceAsync(Device device);
 }
 
@@ -16,20 +18,29 @@ public interface IDeviceRepository
 /// Repository implementation for device operations.
 /// </summary>
 /// <param name="context"></param>
-public class DeviceRepository(IotDbContext context) : IDeviceRepository
+/// <param name="activitySource"></param>
+public class DeviceRepository(IotDbContext context, ActivitySource activitySource) : IDeviceRepository
 {
     private readonly IotDbContext _context = context;
+    private readonly ActivitySource _activitySource = activitySource;
 
-    public IEnumerable<Device> GetDevices()
+    public async Task<IEnumerable<Device>> GetDevicesAsync()
     {
-        return _context.Devices;
+        using var activity = _activitySource.StartActivity("DeviceRepository.GetDevicesAsync");
+        activity?.SetTag("Repository", nameof(DeviceRepository));
+        activity?.SetStatus(ActivityStatusCode.Ok);
+        return await _context.Devices.ToListAsync();
     }
 
     public async Task<Device> AddDeviceAsync(Device device)
     {
+        using var activity = _activitySource.StartActivity("DeviceRepository.AddDeviceAsync");
+        activity?.SetTag("Repository", nameof(DeviceRepository));
         _context.Devices.Add(device);
         _context.SaveChanges();
         await _context.Entry(device).ReloadAsync();
+        
+        activity?.SetStatus(ActivityStatusCode.Ok);
         return device;
     }
 }

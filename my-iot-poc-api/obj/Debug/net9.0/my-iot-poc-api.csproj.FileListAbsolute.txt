@@ -65,3 +65,4 @@
 /Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MyIOTPoc.Business.dll
 /Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MyIOTPoc.Business.pdb
 /Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MyIOTPoc.Business.xml
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/OpenTelemetry.Exporter.OpenTelemetryProtocol.dll

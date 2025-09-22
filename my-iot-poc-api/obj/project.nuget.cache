@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "F/jlQbgDSnM=",
+  "dgSpecHash": "AW7DS0HGSUQ=",
   "success": true,
   "projectFilePath": "/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/my-iot-poc-api.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "/Users/arnecaluwe/.nuget/packages/opentelemetry.api/1.12.0/opentelemetry.api.1.12.0.nupkg.sha512",
     "/Users/arnecaluwe/.nuget/packages/opentelemetry.api.providerbuilderextensions/1.12.0/opentelemetry.api.providerbuilderextensions.1.12.0.nupkg.sha512",
     "/Users/arnecaluwe/.nuget/packages/opentelemetry.exporter.console/1.12.0/opentelemetry.exporter.console.1.12.0.nupkg.sha512",
+    "/Users/arnecaluwe/.nuget/packages/opentelemetry.exporter.opentelemetryprotocol/1.12.0/opentelemetry.exporter.opentelemetryprotocol.1.12.0.nupkg.sha512",
     "/Users/arnecaluwe/.nuget/packages/opentelemetry.extensions.hosting/1.12.0/opentelemetry.extensions.hosting.1.12.0.nupkg.sha512",
     "/Users/arnecaluwe/.nuget/packages/opentelemetry.instrumentation.aspnetcore/1.12.0/opentelemetry.instrumentation.aspnetcore.1.12.0.nupkg.sha512",
     "/Users/arnecaluwe/.nuget/packages/scalar.aspnetcore/2.8.4/scalar.aspnetcore.2.8.4.nupkg.sha512",
