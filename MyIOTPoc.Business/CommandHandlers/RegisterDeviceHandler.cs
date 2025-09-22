@@ -7,9 +7,9 @@ namespace MyIOTPoc.Business.CommandHandlers;
 /// <summary>
 /// Handler for registering a new device.
 /// </summary>
-public class RegisterDeviceHandler(IDeviceRepository deviceRepository, ActivitySource activitySource) : IRequestHandler<RegisterDeviceCommand, Device>
+public class RegisterDeviceHandler(DeviceRepository deviceRepository, ActivitySource activitySource) : IRequestHandler<RegisterDeviceCommand, Device>
 {
-    private readonly IDeviceRepository _deviceRepository = deviceRepository;
+    private readonly DeviceRepository _deviceRepository = deviceRepository;
     private readonly ActivitySource _activitySource = activitySource;
 
     /// <summary>

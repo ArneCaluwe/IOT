@@ -7,10 +7,10 @@ namespace MyIOTPoc.Business.QueryHandlers.Devices;
 /// <summary>
 /// Handler for retrieving all devices.
 /// </summary>
-public class GetDevicesQueryHandler(ActivitySource activitySource, IDeviceRepository deviceRepository) 
+public class GetDevicesQueryHandler(ActivitySource activitySource, DeviceRepository deviceRepository) 
     : QueryHandlerWithActivity<GetDevicesQuery, IEnumerable<Device>>(activitySource)
 {
-    private readonly IDeviceRepository _deviceRepository = deviceRepository;
+    private readonly DeviceRepository _deviceRepository = deviceRepository;
 
     /// <inheritdoc />
     public override async Task<IEnumerable<Device>> HandleRequest(GetDevicesQuery request, CancellationToken cancellationToken)

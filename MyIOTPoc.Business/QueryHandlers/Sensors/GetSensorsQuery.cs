@@ -7,10 +7,10 @@ namespace MyIOTPoc.Business.QueryHandlers.sensors;
 /// <summary>
 /// Handler for retrieving all sensors.
 /// </summary>
-public class GetSensorsQueryHandler(ActivitySource activitySource, ISensorRepository sensorRepository) 
+public class GetSensorsQueryHandler(ActivitySource activitySource, SensorRepository sensorRepository) 
     : QueryHandlerWithActivity<GetSensorsQuery, IEnumerable<Sensor>>(activitySource)
 {
-    private readonly ISensorRepository _sensorRepository = sensorRepository;
+    private readonly SensorRepository _sensorRepository = sensorRepository;
 
     /// <inheritdoc />
     public override async Task<IEnumerable<Sensor>> HandleRequest(GetSensorsQuery request, CancellationToken cancellationToken)

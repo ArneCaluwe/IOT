@@ -6,20 +6,11 @@ using MyIOTPoc.Domain.Models.Sensors;
 namespace MyIOTPoc.DAL.Repositories;
 
 /// <summary>
-/// Repository interface for sensor operations.
-/// </summary>
-public interface ISensorRepository
-{
-    Task<IEnumerable<Sensor>> GetSensorsAsync(CancellationToken cancellationToken);
-    Task<Sensor> AddSensorAsync(Sensor sensor, CancellationToken cancellationToken);
-}
-
-/// <summary>
 /// Repository implementation for sensor operations.
 /// </summary>
 /// <param name="context"></param>
 /// <param name="activitySource"></param>
-public class SensorRepository(IotDbContext context, ActivitySource activitySource) : ISensorRepository
+public class SensorRepository(IotDbContext context, ActivitySource activitySource)
 {
     private readonly IotDbContext _context = context;
     private readonly ActivitySource _activitySource = activitySource;

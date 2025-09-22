@@ -4,22 +4,12 @@ using MyIOTPoc.DAL.Context;
 using MyIOTPoc.Domain.Models.Devices;
 
 namespace MyIOTPoc.DAL.Repositories;
-
-/// <summary>
-/// Repository interface for device operations.
-/// </summary>
-public interface IDeviceRepository
-{
-    Task<IEnumerable<Device>> GetDevicesAsync();
-    Task<Device> AddDeviceAsync(Device device);
-}
-
 /// <summary>
 /// Repository implementation for device operations.
 /// </summary>
 /// <param name="context"></param>
 /// <param name="activitySource"></param>
-public class DeviceRepository(IotDbContext context, ActivitySource activitySource) : IDeviceRepository
+public class DeviceRepository(IotDbContext context, ActivitySource activitySource)
 {
     private readonly IotDbContext _context = context;
     private readonly ActivitySource _activitySource = activitySource;
