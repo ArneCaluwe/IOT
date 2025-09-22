@@ -28,6 +28,7 @@ public static class OpenTelemetryExtensions
     
     /// <summary>
     /// Adds OpenTelemetry tracing and metrics to the service collection.
+    /// Will add traces. These traces are called activities in .NET as they are built on top of System.Diagnostics.
     /// </summary>
     /// <param name="services"></param>
     /// <param name="serviceName"></param>

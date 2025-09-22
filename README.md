@@ -25,3 +25,12 @@ The focus of the application is to experiment with new technologies, tools and v
 | ---           | ---   |
 |Website        | [scalar.com](https://scalar.com) |
 | Docs          | [.NET specific docs](https://guides.scalar.com/scalar/scalar-api-references/integrations/net-aspnet-core/integration) |
+
+## Project structure
+### References
+```
+    API         Business
+     ↓      ↙    ↓
+    Domain  ←   DAL
+```
+     

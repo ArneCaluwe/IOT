@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("5b968920-c8b9-4567-a97a-f4e36e567635")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("my-iot-poc-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27cf339e01fec3ae70b8ef16b6c895aab18a9c84")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59f609ef22069cccd06407b2573e7ccf3e6bc3f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("my-iot-poc-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("my-iot-poc-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

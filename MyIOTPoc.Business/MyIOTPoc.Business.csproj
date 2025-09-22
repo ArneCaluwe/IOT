@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <OpenApiGenerateDocuments>true</OpenApiGenerateDocuments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyIOTPoc.Domain\MyIOTPoc.Domain.csproj" />
+    <ProjectReference Include="..\MyIOTPoc.DAL\MyIOTPoc.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

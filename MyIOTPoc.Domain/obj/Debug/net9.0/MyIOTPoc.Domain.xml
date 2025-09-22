@@ -34,9 +34,19 @@
             The name of the device.
             </summary>
         </member>
+        <member name="P:MyIOTPoc.Domain.Models.Devices.Device.FirmwareVersion">
+            <summary>
+            The firmware version of the device.
+            </summary>
+        </member>
         <member name="P:MyIOTPoc.Domain.Models.Devices.Device.Location">
             <summary>
             The location of the device.
+            </summary>
+        </member>
+        <member name="P:MyIOTPoc.Domain.Models.Devices.Device.Capabilities">
+            <summary>
+            The capabilities of the device.
             </summary>
         </member>
         <member name="T:MyIOTPoc.Domain.Models.Sensors.Sensor">

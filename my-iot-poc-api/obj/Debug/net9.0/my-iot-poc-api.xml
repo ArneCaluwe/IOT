@@ -4,25 +4,17 @@
         <name>my-iot-poc-api</name>
     </assembly>
     <members>
-        <member name="T:MyIOTPoc.Commands.CreateSensorCommand">
+        <member name="T:MyIOTPoc.API.Setup.MediatrExtensions">
             <summary>
-            Command to create a new sensor.
+            Extension methods for setting up MediatR.
             </summary>
         </member>
-        <member name="P:MyIOTPoc.Commands.CreateSensorCommand.Name">
+        <member name="M:MyIOTPoc.API.Setup.MediatrExtensions.AddMediatr(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
             <summary>
-            The name of the sensor.
+            Adds and configures MediatR services.
             </summary>
-        </member>
-        <member name="P:MyIOTPoc.Commands.CreateSensorCommand.Type">
-            <summary>
-            The type of the sensor (e.g., Temperature, Humidity).
-            </summary>
-        </member>
-        <member name="P:MyIOTPoc.Commands.CreateSensorCommand.DeviceId">
-            <summary>
-            The ID of the device to which the sensor is attached.
-            </summary>
+            <param name="services"></param>
+            <returns></returns>
         </member>
         <member name="T:MyIOTPoc.API.Setup.OpenTelemetryExtensions">
             <summary>
@@ -39,6 +31,7 @@
         <member name="M:MyIOTPoc.API.Setup.OpenTelemetryExtensions.AddOpenTelemetryTracingAndMetrics(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String)">
             <summary>
             Adds OpenTelemetry tracing and metrics to the service collection.
+            Will add traces. These traces are called activities in .NET as they are built on top of System.Diagnostics.
             </summary>
             <param name="services"></param>
             <param name="serviceName"></param>

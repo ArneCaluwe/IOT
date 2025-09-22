@@ -56,3 +56,12 @@
 /Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/obj/Debug/net9.0/my-iot-poc-api.pdb
 /Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/obj/Debug/net9.0/my-iot-poc-api.genruntimeconfig.cache
 /Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/obj/Debug/net9.0/ref/my-iot-poc-api.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MediatR.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MediatR.Contracts.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MyIOTPoc.Business.dll
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MyIOTPoc.Business.pdb
+/Users/arnecaluwe/Documents/projects/my-iot-poc/server/my-iot-poc-api/bin/Debug/net9.0/MyIOTPoc.Business.xml

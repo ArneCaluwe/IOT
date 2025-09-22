@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyIOTPoc.Business</name>
+    </assembly>
+    <members>
+        <member name="T:MyIOTPoc.Business.Assembly">
+            <summary>
+            Marker class for assembly scanning.
+            </summary>
+        </member>
+        <member name="T:MyIOTPoc.Domain.Business.CommandHandlers.RegisterDeviceHandler">
+            <summary>
+            Handler for registering a new device.
+            </summary>
+        </member>
+        <member name="M:MyIOTPoc.Domain.Business.CommandHandlers.RegisterDeviceHandler.#ctor(MyIOTPoc.DAL.Repositories.IDeviceRepository)">
+            <summary>
+            Handler for registering a new device.
+            </summary>
+        </member>
+        <member name="M:MyIOTPoc.Domain.Business.CommandHandlers.RegisterDeviceHandler.Handle(MyIOTPoc.Domain.Business.Commands.RegisterDeviceCommand,System.Threading.CancellationToken)">
+            <summary>
+            Handles the registration of a new device.
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns>Registered device</returns>
+        </member>
+        <member name="T:MyIOTPoc.Domain.Business.Commands.RegisterDeviceCommand">
+            <summary>
+            Command to register a new device in the system.
+            </summary>
+            <example>
+            {
+              "deviceType": "ArduinoUno",
+              "capabilities": ["temperature", "humidity"],
+              "location": "Warehouse A",
+              "firmwareVersion": "1.0.3"
+            }
+            </example>
+        </member>
+        <member name="M:MyIOTPoc.Domain.Business.Commands.RegisterDeviceCommand.#ctor(System.String,System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Command to register a new device in the system.
+            </summary>
+            <example>
+            {
+              "deviceType": "ArduinoUno",
+              "capabilities": ["temperature", "humidity"],
+              "location": "Warehouse A",
+              "firmwareVersion": "1.0.3"
+            }
+            </example>
+        </member>
+    </members>
+</doc>
