@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MyIOTPoc.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb9dfa7824388ba44436250e27a9d298df751e8e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72558f33f60858719c66d124e4c50c1e6ffbe71f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MyIOTPoc.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MyIOTPoc.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
