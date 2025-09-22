@@ -28,7 +28,7 @@ public class SensorRepository(IotDbContext context, ActivitySource activitySourc
         using var activity = _activitySource.StartActivity("SensorRepository.AddSensorAsync");
         activity?.SetTag("Repository", nameof(SensorRepository));
         _context.Sensors.Add(sensor);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync(cancellationToken);
         await _context.Entry(sensor).ReloadAsync(cancellationToken);
         
         activity?.SetStatus(ActivityStatusCode.Ok);
