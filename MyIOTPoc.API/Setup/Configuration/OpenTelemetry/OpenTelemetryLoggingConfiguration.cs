@@ -8,5 +8,5 @@ namespace MyIOTPoc.API.Setup.Configuration.OpenTelemetry;
 public record OpenTelemetryLoggingConfiguration(
     bool Enabled,
     OpenTelemetryExporterOptions ConsoleExporterOptions, 
-    OpenTelemetryExporterOptions OtlpExporterOptions
+    OpenTelemetryLoggingExporterOptions OtlpExporterOptions
 );

@@ -24,7 +24,7 @@ public static class OpenTelemetryExtensions
     {
         if (!configuration.Enabled)
             return;
-        
+
         logging.AddOpenTelemetry(options =>
         {
             options
@@ -33,8 +33,11 @@ public static class OpenTelemetryExtensions
                         .AddService(serviceName));
             if (configuration.ConsoleExporterOptions.Enabled)
                 options.AddConsoleExporter();
-            if(configuration.OtlpExporterOptions.Enabled)
-                options.AddOtlpExporter();
+            if (configuration.OtlpExporterOptions.Enabled)
+                options.AddOtlpExporter(opt =>
+                    {
+                        opt.Endpoint = new Uri(configuration.OtlpExporterOptions.Endpoint);
+                    });
         });
     }
 
@@ -59,7 +62,8 @@ public static class OpenTelemetryExtensions
                 resource.AddService(serviceName));
 
         if (tracingConfiguration.Enabled)
-            resource.WithTracing(tracing => {
+            resource.WithTracing(tracing =>
+            {
                 tracing
                     .AddAspNetCoreInstrumentation();
                 if (tracingConfiguration.ConsoleExporterOptions.Enabled)

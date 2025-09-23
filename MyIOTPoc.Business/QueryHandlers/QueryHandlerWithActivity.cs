@@ -58,6 +58,7 @@ public partial class Log
     public static partial void HandlingRequest(ILogger logger, string handler);
 
     /// <summary>
+    /// Compile time logger method.
     /// Logs information about the completion of a request.
     /// </summary>
     /// <param name="logger"></param>
