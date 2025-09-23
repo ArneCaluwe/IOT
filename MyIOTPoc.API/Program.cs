@@ -1,13 +1,7 @@
-using Microsoft.EntityFrameworkCore;
 using MyIOTPoc.API.Controllers;
 using MyIOTPoc.API.Setup;
 using MyIOTPoc.API.Setup.Configuration.OpenTelemetry;
-using MyIOTPoc.DAL.Context;
-using MyIOTPoc.DAL.Repositories;
-using OpenTelemetry.Exporter;
-using OpenTelemetry.Logs;
 using Scalar.AspNetCore;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,9 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
-builder.Services.AddDbContext<IotDbContext>(options =>
-    options.UseInMemoryDatabase("IotDb"));
+builder.Services.AddEntityFrameworkCore();
 
 builder.Logging.AddOpenTelemetryLogging(
     builder.Environment.ApplicationName,
@@ -29,27 +21,22 @@ builder.Services.AddOpenTelemetryTracingAndMetrics(
     );
 builder.Services.AddMediatr(builder.Configuration["Licenses:Mediatr"] ?? throw new InvalidOperationException("MediatR license key is not configured"));
 
-builder.Services.AddScoped<DeviceRepository>();
-builder.Services.AddScoped<SensorRepository>();
+builder.Services.AddRepositories();
 
 var app = builder.Build();
 
+app.UseEntityFrameworkCore();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    using (var scope = app.Services.CreateScope())
-    {
-        var db = scope.ServiceProvider.GetRequiredService<IotDbContext>();
-        db.Database.EnsureDeleted();
-        db.Database.EnsureCreated();
-    }
 
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
-
-app.UseHttpsRedirection();
+else
+{
+    app.UseHttpsRedirection();
+}
 
 
 app.MapSensorControllers();

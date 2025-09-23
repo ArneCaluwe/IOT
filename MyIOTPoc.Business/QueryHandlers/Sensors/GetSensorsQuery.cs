@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using MyIOTPoc.Business.Queries.Sensors;
 using MyIOTPoc.DAL.Repositories;
 using MyIOTPoc.Domain.Models.Sensors;
@@ -7,15 +8,13 @@ namespace MyIOTPoc.Business.QueryHandlers.sensors;
 /// <summary>
 /// Handler for retrieving all sensors.
 /// </summary>
-public class GetSensorsQueryHandler(ActivitySource activitySource, SensorRepository sensorRepository) 
-    : QueryHandlerWithActivity<GetSensorsQuery, IEnumerable<Sensor>>(activitySource)
+public class GetSensorsQueryHandler(ActivitySource activitySource, SensorRepository sensorRepository, ILogger<GetSensorsQuery> logger) 
+    : QueryHandlerWithActivity<GetSensorsQuery, IEnumerable<Sensor>>(activitySource, logger)
 {
-    private readonly SensorRepository _sensorRepository = sensorRepository;
-
     /// <inheritdoc />
     public override async Task<IEnumerable<Sensor>> HandleRequest(GetSensorsQuery request, CancellationToken cancellationToken)
     {
-        var sensors = await _sensorRepository.GetSensorsAsync(cancellationToken);
+        var sensors = await sensorRepository.GetSensorsAsync(cancellationToken);
         return sensors;
     }
 }
