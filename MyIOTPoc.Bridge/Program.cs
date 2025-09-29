@@ -1,16 +1,10 @@
-using MyIOTPoc.API.Controllers;
-using MyIOTPoc.API.Setup;
-using Scalar.AspNetCore;
+
 using MyIOTPoc.Telemetry.Setup;
 using MyIOTPoc.Telemetry.Configuration.OpenTelemetry;
+using DeviceBridge.Ports;
+using DeviceBridge.Commands.Dispatcher;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-builder.Services.AddEntityFrameworkCore();
 
 builder.Logging.AddOpenTelemetryLogging(
     builder.Environment.ApplicationName,
@@ -20,27 +14,10 @@ builder.Services.AddOpenTelemetryTracingAndMetrics(
     builder.Configuration.GetSection("OpenTelemetry:Traces").Get<OpenTelemetryTracingConfiguration>() ?? throw new InvalidOperationException("OpenTelemetry tracing configuration is not set"),
     builder.Configuration.GetSection("OpenTelemetry:Metrics").Get<OpenTelemetryMetricsConfiguration>() ?? throw new InvalidOperationException("OpenTelemetry metrics configuration is not set")
     );
-builder.Services.AddMediatr(builder.Configuration["Licenses:Mediatr"] ?? throw new InvalidOperationException("MediatR license key is not configured"));
-
-builder.Services.AddRepositories();
 
 var app = builder.Build();
 
-app.UseEntityFrameworkCore();
-
-if (app.Environment.IsDevelopment())
-{
-
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
-else
-{
-    app.UseHttpsRedirection();
-}
-
-
-app.MapSensorControllers();
-app.MapDeviceControllers();
-
 app.Run();
+
+
+var commandDispatcher = new CommandDispatcher().WithHandlersFromAssembly();

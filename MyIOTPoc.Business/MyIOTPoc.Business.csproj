@@ -13,4 +13,8 @@
     <ProjectReference Include="..\MyIOTPoc.DAL\MyIOTPoc.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Telemetry.Abstractions" Version="9.9.0" />
+  </ItemGroup>
+
 </Project>

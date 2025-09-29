@@ -1,11 +1,13 @@
-using MyIOTPoc.API.Setup.Configuration.OpenTelemetry;
-using OpenTelemetry.Exporter;
+using System.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using MyIOTPoc.Telemetry.Configuration.OpenTelemetry;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
-namespace MyIOTPoc.API.Setup;
+namespace MyIOTPoc.Telemetry.Setup;
 /// <summary>
 /// Extension methods for setting up OpenTelemetry logging, tracing, and metrics.
 /// </summary>

@@ -1,4 +1,4 @@
-namespace MyIOTPoc.API.Setup.Configuration.OpenTelemetry;
+namespace MyIOTPoc.Telemetry.Configuration.OpenTelemetry;
 
 /// <summary>
 /// Configuration options for OpenTelemetry exporters.

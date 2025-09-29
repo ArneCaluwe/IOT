@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="../bridge/DeviceBridge.Generators/DeviceBridge.Generators.csproj" />
+  <Project Path="../bridge/DeviceBridge/DeviceBridge.csproj" />
+  <Project Path="MyIOTPoc.API/MyIOTPoc.API.csproj" />
+  <Project Path="MyIOTPoc.Bridge/MyIOTPoc.Bridge.csproj" />
+  <Project Path="MyIOTPoc.Business/MyIOTPoc.Business.csproj" />
+  <Project Path="MyIOTPoc.DAL/MyIOTPoc.DAL.csproj" />
+  <Project Path="MyIOTPoc.Domain/MyIOTPoc.Domain.csproj" />
+  <Project Path="MyIOTPoc.Telemetry/MyIOTPoc.Telemetry.csproj" />
+</Solution>

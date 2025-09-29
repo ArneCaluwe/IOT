@@ -1,6 +1,0 @@
-<Solution>
-  <Project Path="MyIOTPoc.API/MyIOTPoc.API.csproj" />
-  <Project Path="MyIOTPoc.Business/MyIOTPoc.Business.csproj" />
-  <Project Path="MyIOTPoc.DAL/MyIOTPoc.DAL.csproj" />
-  <Project Path="MyIOTPoc.Domain/MyIOTPoc.Domain.csproj" />
-</Solution>

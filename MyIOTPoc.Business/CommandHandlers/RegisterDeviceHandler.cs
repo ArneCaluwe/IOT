@@ -21,7 +21,7 @@ public class RegisterDeviceHandler(DeviceRepository deviceRepository, ActivitySo
         using var activity = activitySource.StartActivity("RegisterDeviceHandler.Handle");
         activity?.AddTag("Handler", nameof(RegisterDeviceHandler));
 
-        Log.RegisteringDevice(logger, request.DeviceType, request.Location);
+        Log.RegisteringDevice(logger, request);
 
         var device = new Device
         {
@@ -40,17 +40,17 @@ public class RegisterDeviceHandler(DeviceRepository deviceRepository, ActivitySo
 /// <summary>
 /// Logger messages for RegisterDeviceHandler.
 /// </summary>
-public partial class Log
+public static partial class Log
 {
     /// <summary>
     /// Logs information about a new device registration.
     /// </summary>
     /// <param name="logger"></param>
-    /// <param name="deviceType"></param>
-    /// <param name="location"></param>
+    /// <param name="registerDeviceCommand"></param>
     [LoggerMessage(
         EventId = 0,
         Level = LogLevel.Information,
-        Message = "Registering new device: {DeviceType} at {Location}")]
-    public static partial void RegisteringDevice(ILogger logger, string deviceType, string location);
+        Message = "Registering new device")]
+    public static partial void RegisteringDevice(ILogger logger, [LogProperties(OmitReferenceName = true)] in RegisterDeviceCommand registerDeviceCommand);
+
 }

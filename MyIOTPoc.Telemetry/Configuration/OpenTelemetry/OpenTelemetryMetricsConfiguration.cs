@@ -1,4 +1,4 @@
-namespace MyIOTPoc.API.Setup.Configuration.OpenTelemetry;
+namespace MyIOTPoc.Telemetry.Configuration.OpenTelemetry;
 
 /// <summary>
 /// Configuration options for OpenTelemetry metrics.
@@ -8,6 +8,6 @@ namespace MyIOTPoc.API.Setup.Configuration.OpenTelemetry;
 /// <param name="OtlpExporterOptions"> Configuration options for the oltp exporter.</param>
 public record OpenTelemetryMetricsConfiguration(
     bool Enabled,
-    OpenTelemetryExporterOptions ConsoleExporterOptions, 
+    OpenTelemetryExporterOptions ConsoleExporterOptions,
     OpenTelemetryExporterOptions OtlpExporterOptions
 );

@@ -23,5 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MyIOTPoc.Domain\MyIOTPoc.Domain.csproj" />
     <ProjectReference Include="..\MyIOTPoc.Business\MyIOTPoc.Business.csproj" />
+    <ProjectReference Include="..\MyIOTPoc.Telemetry\MyIOTPoc.Telemetry.csproj" />
   </ItemGroup>
 </Project>
