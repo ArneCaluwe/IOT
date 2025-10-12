@@ -5,16 +5,15 @@ namespace MyIOTPoc.Domain.Models.Sensors;
 /// <summary>
 /// Represents a sensor entity in the IoT system.
 /// </summary>
-public class Sensor : EntityBase
+public class Reading : EntityBase
 {
-
     /// <summary>
-    /// The type of the sensor (e.g., temperature, humidity).
+    /// The type of the reading (e.g., temperature, humidity).
     /// </summary>
     public string Type { get; set; } = default!;
 
     /// <summary>
-    /// The unit associated with the sensor (preferably SI, eg: °C, %)
+    /// The Value of the reading
     /// </summary>
-    public string Unit { get; set; } = default!;
+    public float Value { get; set; } = default!;
 }

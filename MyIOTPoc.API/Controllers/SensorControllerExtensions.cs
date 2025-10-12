@@ -1,3 +1,4 @@
+using MyIOTPoc.Business.Commands.Sensors;
 using MyIOTPoc.Business.Queries.Sensors;
 using MyIOTPoc.Domain.Models.Sensors;
 
@@ -27,6 +28,14 @@ public static class SensorControllerExtensions
             .Produces<List<Sensor>>(StatusCodes.Status200OK)
             .WithSummary("Get all sensors")
             .WithDescription("Retrieves a list of all sensors in the system.");
+
+        group.MapPost("reading", async (AddReadingCommand cmd, ISender sender) =>
+            {
+                var reading = sender.Send(cmd);
+                return Results.Created($"readings/{reading.Id}", reading);
+            })
+            .WithSummary("Adds a new reading")
+            .WithDescription("Adds a new reading by a sensor.");
 
         return app;
     }

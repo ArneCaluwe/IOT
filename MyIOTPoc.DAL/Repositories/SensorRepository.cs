@@ -30,8 +30,20 @@ public class SensorRepository(IotDbContext context, ActivitySource activitySourc
         _context.Sensors.Add(sensor);
         await _context.SaveChangesAsync(cancellationToken);
         await _context.Entry(sensor).ReloadAsync(cancellationToken);
-        
+
         activity?.SetStatus(ActivityStatusCode.Ok);
         return sensor;
+    }
+
+    public async Task<Reading> AddReadingAsync(Reading reading, CancellationToken cancellationToken)
+    {
+        using var activity = _activitySource.StartActivity("SensorRepository.AddReadingAsync");
+        activity?.SetTag("Repository", nameof(SensorRepository));
+        _context.Readings.Add(reading);
+        await _context.SaveChangesAsync(cancellationToken);
+        await _context.Entry(reading).ReloadAsync(cancellationToken);
+
+        activity?.SetStatus(ActivityStatusCode.Ok);
+        return reading;
     }
 }

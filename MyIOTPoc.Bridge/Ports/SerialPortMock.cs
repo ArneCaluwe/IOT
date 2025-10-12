@@ -1,7 +1,7 @@
 using System.IO.Ports;
 using System.Text.Json;
-using DeviceBridge.Commands.Base;
 using DeviceBridge.Commands.Devices;
+using MyIOTPoc.Bridge.Commands.Base;
 
 namespace DeviceBridge.Ports;
 
@@ -13,6 +13,8 @@ namespace DeviceBridge.Ports;
 /// <param name="Baudrate"></param>
 public class SerialPortMock(string portName, int baudRate) : SerialPort(portName, baudRate)
 {
+    public new event EventHandler<string>? DataReceived;
+
     private DateTime? openedDate;
     private string? lastMessage;
     /// <summary>
@@ -22,6 +24,7 @@ public class SerialPortMock(string portName, int baudRate) : SerialPort(portName
     new public void Open()
     {
         openedDate = DateTime.UtcNow;
+        DataReceived!.Invoke(this, ReadLine());
     }
 
     new public bool IsOpen => openedDate == null;

@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using MyIOTPoc.Domain.Models.Devices;
+using MyIOTPoc.Domain.Models.Sensors;
 
 namespace MyIOTPoc.Business.Commands.Devices;
 
@@ -10,9 +11,10 @@ namespace MyIOTPoc.Business.Commands.Devices;
 /// <example>
 /// {
 ///   "deviceType": "ArduinoUno",
-///   "capabilities": ["temperature", "humidity"],
+///   "capabilities": ["status"],
 ///   "location": "Warehouse A",
-///   "firmwareVersion": "1.0.3"
+///   "firmwareVersion": "1.0.3",
+///   "sensors": 
 /// }
 /// </example>
 [Description("Command to register a new device in the system.")]
@@ -23,14 +25,19 @@ public record RegisterDeviceCommand(
 
     [property:Required]
     [property:MinLength(1)]
-    [property:Description("List of capabilities the device supports, e.g., temperature, humidity.")]
+    [property:Description("List of capabilities the device supports, eg: status")]
     List<string> Capabilities,
 
     [property:Required]
     [property:Description("Physical location of the device.")]
     string Location,
-    
+
     [property:Required]
     [property:Description("Firmware version of the device.")]
-    string FirmwareVersion
-): IRequest<Device>;
+    string FirmwareVersion,
+
+    [property: Required]
+    [property:Description("List of sensors of the device.")]
+    IEnumerable<Sensor> Sensors
+
+) : IRequest<Device>;

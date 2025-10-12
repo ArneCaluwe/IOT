@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
-using DeviceBridge.Commands.Base;
 using DeviceBridge.Handlers.Base;
+using MyIOTPoc.Bridge.Commands.Base;
+using MyIOTPoc.Bridge.Handlers.Base;
 
 namespace DeviceBridge.Commands.Dispatcher;
 
@@ -10,9 +12,13 @@ namespace DeviceBridge.Commands.Dispatcher;
 /// dispatches the payload to the designated 
 /// <see cref="CommandHandler{TPayload}"/>
 /// </summary>
-public class CommandDispatcher
+public class CommandDispatcher(ActivitySource activitySource, ILogger<CommandDispatcher> logger)
 {
     private readonly Dictionary<string, ICommandHandler> _handlers = [];
+    private JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions()
+    {
+        PropertyNameCaseInsensitive = true
+    };
 
     /// <summary>
     /// Register a new CommandHandler
@@ -51,7 +57,7 @@ public class CommandDispatcher
         var handlers = assembly
             .GetTypes()
             .Where(t => handlerType.IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract)
-            .Select(t => (ICommandHandler)Activator.CreateInstance(t)!);
+            .Select(t => (ICommandHandler)Activator.CreateInstance(t, args: activitySource)!);
 
         foreach (var handler in handlers)
         {
@@ -67,7 +73,7 @@ public class CommandDispatcher
     /// <param name="json"></param>
     public void Dispatch(string json)
     {
-        var envelope = JsonSerializer.Deserialize<CommandEnvelope>(json);
+        var envelope = JsonSerializer.Deserialize<CommandEnvelope>(json, jsonSerializerOptions);
         if (envelope == null) return;
 
         Dispatch(envelope);
@@ -79,6 +85,9 @@ public class CommandDispatcher
     /// <param name="envelope">the envelope</param>
     public void Dispatch(CommandEnvelope envelope)
     {
+
+        using var activity = activitySource.StartActivity(ActivityKind.Internal);
+
         string command = envelope.Command;
         if (_handlers.TryGetValue(command, out var handler))
         {
@@ -86,7 +95,9 @@ public class CommandDispatcher
         }
         else
         {
-            Console.WriteLine($"[Dispatcher] Unknown command: {command}");
+            logger.LogInformation($"[Dispatcher] Unknown command: {command}");
         }
+
+        activity?.SetStatus(ActivityStatusCode.Ok);
     }
 }

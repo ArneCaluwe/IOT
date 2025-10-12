@@ -1,11 +1,12 @@
+using System.Diagnostics;
 using DeviceBridge.Clients.Devices;
 using DeviceBridge.Commands.Devices;
-using DeviceBridge.Handlers.Base;
+using MyIOTPoc.Bridge.Handlers.Base;
 
-namespace DeviceBridge.Handlers.Devices;
+namespace MyIOTPoc.Bridge.Handlers.Devices;
 
 /// <inheritdoc/>
-public class RegisterDeviceHandler : CommandHandler<RegisterDeviceCommand>
+public class RegisterDeviceHandler(ActivitySource activitySource) : CommandHandler<RegisterDeviceCommand>(activitySource)
 {
     private readonly DeviceClient client = new();
 

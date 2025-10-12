@@ -1,8 +1,9 @@
 
 using MyIOTPoc.Telemetry.Setup;
 using MyIOTPoc.Telemetry.Configuration.OpenTelemetry;
-using DeviceBridge.Ports;
+using MyIOTPoc.Bridge.BackgroundServices;
 using DeviceBridge.Commands.Dispatcher;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,9 +16,10 @@ builder.Services.AddOpenTelemetryTracingAndMetrics(
     builder.Configuration.GetSection("OpenTelemetry:Metrics").Get<OpenTelemetryMetricsConfiguration>() ?? throw new InvalidOperationException("OpenTelemetry metrics configuration is not set")
     );
 
+builder.Services.AddSingleton((sp) => new CommandDispatcher(sp.GetRequiredService<ActivitySource>(), sp.GetRequiredService<ILogger<CommandDispatcher>>()).WithHandlersFromAssembly());
+builder.Services.AddHostedService<SerialPortListenerService>();
+
 var app = builder.Build();
 
 app.Run();
 
-
-var commandDispatcher = new CommandDispatcher().WithHandlersFromAssembly();

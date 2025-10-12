@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace DeviceBridge.Commands.Base;
+namespace MyIOTPoc.Bridge.Commands.Base;
 
 /// <summary>
 /// A Command wrapped in a CommandEnvelope

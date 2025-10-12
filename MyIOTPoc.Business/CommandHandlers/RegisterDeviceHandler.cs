@@ -28,7 +28,8 @@ public class RegisterDeviceHandler(DeviceRepository deviceRepository, ActivitySo
             Name = request.DeviceType,
             FirmwareVersion = request.FirmwareVersion,
             Location = request.Location,
-            Capabilities = request.Capabilities
+            Capabilities = request.Capabilities,
+            Sensors = request.Sensors ?? [],
         };
 
         activity?.SetStatus(ActivityStatusCode.Ok);

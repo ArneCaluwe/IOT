@@ -11,15 +11,10 @@ public abstract class QueryHandlerWithActivity<TRequest, TResponse>(ActivitySour
     : IRequestHandler<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
 {
-    /// <summary>
-    /// The activity source used to create activities for tracing.
-    /// </summary>
-    protected readonly ActivitySource _activitySource = activitySource;
-
     /// <inheritdoc />
     public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
     {
-        using var activity = _activitySource.StartActivity($"{GetType().Name}.Handle");
+        using var activity = activitySource.StartActivity($"{GetType().Name}.Handle");
         activity?.AddTag("Handler", GetType().Name);
 
         Log.HandlingRequest(logger, GetType().Name);

@@ -10,13 +10,14 @@ public class IotDbContext(DbContextOptions<IotDbContext> options) : DbContext(op
 
     public DbSet<Device> Devices { get; set; }
     public DbSet<Sensor> Sensors { get; set; }
+    public DbSet<Reading> Readings { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Device>().HasData(
-            new Device { Id = Guid.Parse("11111111-1111-1111-1111-111111111111"), Name = "Device 1", Location = "Lab" },
-            new Device { Id = Guid.Parse("22222222-2222-2222-2222-222222222222"), Name = "Device 2", Location = "Office" }
+            new Device { Id = Guid.Parse("11111111-1111-1111-1111-111111111111"), Name = "Device 1", Location = "Lab", FirmwareVersion = "1.0" },
+            new Device { Id = Guid.Parse("22222222-2222-2222-2222-222222222222"), Name = "Device 2", Location = "Office", FirmwareVersion = "1.0" }
         );
     }
 
@@ -42,7 +43,7 @@ public class IotDbContext(DbContextOptions<IotDbContext> options) : DbContext(op
             var entity = (EntityBase)entry.Entity;
             entity.CreatedAt = DateTime.UtcNow;
         }
-        
+
         var modifiedEntries = ChangeTracker.Entries()
             .Where(e => e.Entity is EntityBase &&
                 e.State == EntityState.Modified);
